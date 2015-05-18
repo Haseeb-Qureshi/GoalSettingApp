@@ -11,7 +11,9 @@
 #
 
 class Goal < ActiveRecord::Base
+  include Commentable
   validates :user_id, :body, presence: true
   validates :body, length: { minimum: 1, maximum: 255 }
   belongs_to :user
+
 end

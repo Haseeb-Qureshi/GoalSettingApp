@@ -3,4 +3,8 @@
   <%= link_to "Edit", edit_goal_url(goal) %>
   <%= link_to "Delete", goal_url(goal), method: :delete %>
   <%= button_to "Completed", complete_goal_url(goal), method: :patch unless goal.completed%>
+  <ul>
+    <%= render goal.comments %>
+    <%= render "comments/comment_form", commentable: goal, http_dest: comments_url, comment_type:"goal_comment", submit_text: "Comment" %>
+  </ul>
 </li>

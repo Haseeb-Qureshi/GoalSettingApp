@@ -30,6 +30,8 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryGirl::Syntax::Methods
   config.include AuthHelper, type: :feature
+  config.include CommentHelper, type: :feature
+  config.include GoalHelper, type: :feature
 
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

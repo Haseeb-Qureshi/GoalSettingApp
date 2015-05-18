@@ -1,8 +1,12 @@
-module AuthHelper
+module GoalHelper
   def create_goal
     user = create(:user)
     login(user)
-    fill_in "Goal", with: "Learn Capybara"
+    add_goal("Learn Capybara")
+  end
+
+  def add_goal(goal)
+    fill_in "Goal", with: goal
     click_button "Create Goal"
   end
 end

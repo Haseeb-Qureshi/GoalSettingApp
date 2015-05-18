@@ -5,3 +5,7 @@
 </ul>
 
 <%= render "goals/goal_form", goal: Goal.new, http_dest: user_goals_url(current_user.id), http_method: "post", submit_text: "Create Goal" %>
+
+<%= render @user.comments %>
+
+<%= render "comments/comment_form", commentable: @user, http_dest: comments_url, submit_text: "Comment on #{@user.username}", comment_type:"user_comment" %>

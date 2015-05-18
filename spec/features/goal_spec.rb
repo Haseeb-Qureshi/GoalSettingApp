@@ -4,7 +4,7 @@ feature "create goal process" do
   it "has a goal form on user's show page" do
     user = create(:user)
     login(user)
-    has_button?("Create Goal")
+    expect(page).to have_button("Create Goal")
   end
 
   it "shows the goal in user's show page after creating" do

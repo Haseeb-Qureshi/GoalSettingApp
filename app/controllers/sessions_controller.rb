@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to user
     else
-      flash[:errors] = "Could not find that usernmae/password"
+      flash[:errors] = "Could not find that username/password"
       render :new
     end
   end
