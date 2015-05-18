@@ -1,0 +1,7 @@
+<%= render @user %>
+
+<ul>
+  <%= render @user.goals %>
+</ul>
+
+<%= render "goals/goal_form", goal: Goal.new, http_dest: user_goals_url(current_user.id), http_method: "post", submit_text: "Create Goal" %>

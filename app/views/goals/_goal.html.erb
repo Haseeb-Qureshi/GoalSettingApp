@@ -1,0 +1,6 @@
+<li>
+  <%= goal.body %><%=" (Completed)" if goal.completed %>
+  <%= link_to "Edit", edit_goal_url(goal) %>
+  <%= link_to "Delete", goal_url(goal), method: :delete %>
+  <%= button_to "Completed", complete_goal_url(goal), method: :patch unless goal.completed%>
+</li>
