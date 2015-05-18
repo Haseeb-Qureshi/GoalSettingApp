@@ -1,0 +1,9 @@
+<h1>Leaderboard</h1>
+<table>
+  <% @goals.sort_by { |goal| goal.cheers.size }.each do |goal| %>
+    <tr>
+      <th><%= goal.cheers.size %></th>
+      <td><%= goal.body %></td>
+    </tr>
+  <% end %>
+</table>

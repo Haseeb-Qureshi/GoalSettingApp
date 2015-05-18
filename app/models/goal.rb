@@ -15,5 +15,6 @@ class Goal < ActiveRecord::Base
   validates :user_id, :body, presence: true
   validates :body, length: { minimum: 1, maximum: 255 }
   belongs_to :user
+  has_many :cheers
 
 end

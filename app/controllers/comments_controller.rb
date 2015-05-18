@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :redirect_if_not_logged_in
+  
   def create
     @comment = Comment.new(comment_params)
     @comment.author = current_user

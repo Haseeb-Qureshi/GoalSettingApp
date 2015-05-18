@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_not_logged_in, only: :show
   def new
     @user = User.new
   end
@@ -16,5 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    # @user = User.includes(:goals).join("cheers ON cheers.goal_id = goals.id")
+    #   .where(id: params[:id]).first
   end
 end

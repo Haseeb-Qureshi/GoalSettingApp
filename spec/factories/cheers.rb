@@ -1,20 +1,18 @@
 # == Schema Information
 #
-# Table name: goals
+# Table name: cheers
 #
 #  id         :integer          not null, primary key
+#  goal_id    :integer          not null
 #  user_id    :integer          not null
-#  body       :string           not null
-#  completed  :boolean          default(FALSE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryGirl.define do
-  factory :goal do
-    user nil
-    body "MyString"
-    completed false
+  factory :cheer do
+    goal nil
+user nil
   end
 
 end

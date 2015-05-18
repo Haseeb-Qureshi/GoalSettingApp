@@ -1,4 +1,6 @@
 <li>
+  <strong><%= "+#{goal.cheers.size}" if goal.cheers.any? %></strong>
+  <%= render "cheers/cheer_button", goal: goal if current_user.cheers > 0 && goal.user != current_user %>
   <%= goal.body %><%=" (Completed)" if goal.completed %>
   <%= link_to "Edit", edit_goal_url(goal) %>
   <%= link_to "Delete", goal_url(goal), method: :delete %>

@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash[:errors] = "Could not find that username/password"
+      @user = User.new(user_params)
       render :new
     end
   end

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
       member do
         patch "complete"
       end
+      post 'cheers' => 'cheers#cheer'
     end
   end
   resource :session, only: [:new, :create, :destroy]
   resources :comments, only: [:create, :destroy]
+  get 'leaderboard' => 'cheers#leaderboard'
 end

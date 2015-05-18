@@ -8,6 +8,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  cheers          :integer          default(5), not null
 #
 
 FactoryGirl.define do

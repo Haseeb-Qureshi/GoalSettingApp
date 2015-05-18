@@ -14,8 +14,8 @@
 FactoryGirl.define do
   factory :comment do
     commentable nil
-body "MyString"
-user nil
+    body "MyString"
+    user nil
   end
 
 end

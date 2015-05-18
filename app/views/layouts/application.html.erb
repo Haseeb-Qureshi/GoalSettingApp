@@ -9,9 +9,7 @@
 <body>
   <%= render 'layouts/header' %>
   <div>
-    <% if flash[:errors] %>
-      <%= flash[:errors].join(", ") %>
-    <% end %>
+    <%= flash[:errors].is_a?(Array) ? flash[:errors].join(", ") : flash[:errors] %>
   </div>
 
   <%= yield %>

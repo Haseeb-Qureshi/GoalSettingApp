@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518205141) do
+ActiveRecord::Schema.define(version: 20150518220526) do
+
+  create_table "cheers", force: :cascade do |t|
+    t.integer  "goal_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cheers", ["goal_id"], name: "index_cheers_on_goal_id"
+  add_index "cheers", ["user_id"], name: "index_cheers_on_user_id"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id",   null: false
@@ -36,11 +46,12 @@ ActiveRecord::Schema.define(version: 20150518205141) do
   add_index "goals", ["user_id"], name: "index_goals_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "password_digest", null: false
-    t.string   "username",        null: false
-    t.string   "session_token",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "password_digest",             null: false
+    t.string   "username",                    null: false
+    t.string   "session_token",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "cheers",          default: 5, null: false
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token"

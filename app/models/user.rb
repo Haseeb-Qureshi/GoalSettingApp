@@ -8,15 +8,23 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  cheers          :integer          default(5), not null
 #
 
 class User < ActiveRecord::Base
   include Commentable
   validates :password_digest, :session_token, :username, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :username, uniqueness: true
   attr_reader :password
 
   has_many :goals
+  has_many(
+    :cheers_to_others,
+    class_name: "Cheer",
+    foreign_key: "user_id",
+    primary_key: "id"
+  )
 
   after_initialize :ensure_session_token
 
